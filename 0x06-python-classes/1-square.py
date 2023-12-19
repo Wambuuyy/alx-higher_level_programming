@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""" a comment
+proper commments tommorrow"""
+
+
 class Square:
     """Class Square that has attributes. Instantiation with size
 
