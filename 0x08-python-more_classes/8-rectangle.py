@@ -1,47 +1,38 @@
 #!/usr/bin/python3
 # 8-rectangle.py
-"""defines a rectangle based on 7-rectangle.py"""
+"""Defines a Rectangle class."""
 
 
 class Rectangle:
+    """Represent a rectangle.
+
+    Attributes:
+        number_of_instances (int): The number of Rectangle instances.
+        print_symbol (any): The symbol used for string representation.
     """
-    It contains:
-        two public class attributes:
-            number_of_instances
-            print_symbol
-        two private and optional attributes:
-            width
-            height
-    """
+
     number_of_instances = 0
-    print_symbol = '#'
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        self.__width = width
-        self.__height = height
-        Rectangle.number_of_instances += 1
+        """Initialize a new Rectangle.
+
+        Args:
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle.
+        """
+        type(self).number_of_instances += 1
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
-        """
-        property width to retrieve it
-        Returns width(int) of the rectangle
-        """
+        """Get/set the width of the Rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """
-        Setter width of the rectangle
-
-        Attributes:
-        width (int): The width of the rectangle
-
-        Raises:
-        TypeError: If width is not an integer
-        ValueError: If width is less than 0
-        """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -49,82 +40,67 @@ class Rectangle:
 
     @property
     def height(self):
-        """
-        property height to retrieve it
-        Returns height(int) of the rectangle
-        """
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """
-        Setter height of the rectangle
-        Attributes:
-        height (int): The height of the rectangle
-        Raises:
-        TypeError: If height is not an integer
-        ValueError: If height is less than 0
-        """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
-        """finds the area of the rectangle"""
-        return self.__height * self .__width
+        """Return the area of the Rectangle."""
+        return (self.__width * self.__height)
 
     def perimeter(self):
-        """finds he distance around the rectangle"""
-        if (self.__height == 0) or (self.__width == 0):
-            return 0
-        return (self.__height + self.__width) * 2
-
-    def __str__(self):
-        """
-        return a printable representation of the rectangle
-        this case we use #
-        """
-        string = ""
+        """Return the perimeter of the Rectangle."""
         if self.__width == 0 or self.__height == 0:
-            return string
-        # handle rows
-        for rows in range(self.__height):
-            # handle columns
-            for columns in range(self.__width):
-                string += str(Rectangle.print_symbol)
-            # to go to the next row with a newline
-            if i < (self.__height - 1):
-                string += '\n'
-        return string
-
-    def __repr__(self):
-        """
-        provides a repr() for the object rectangle
-        returns a string representation of the rectangle
-        enabling it to be recreated using eval
-        """
-        return f"Rectangle({self.__width}, {self.__height})"
-
-    def __del__(self):
-        """the number of instances are decremented and
-        it desplays a message once a rectangle is deleted"""
-        Rectangle.number_of_instances -= 1
-        print("Bye rectangle...")
+            return (0)
+        return ((self.__width * 2) + (self.__height * 2))
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
+        """Return the Rectangle with the greater area.
+
+        Args:
+            rect_1 (Rectangle): The first Rectangle.
+            rect_2 (Rectangle): The second Rectangle.
+        Raises:
+            TypeError: If either of rect_1 or rect_2 is not a Rectangle.
         """
-        Returns the biggest rectangle based on area
-        rect_1 and rect_2 must be instances of the Rectangle
-        else raise a type error with a message
-        if both rectangles have the same area returns rect_1
-        """
-        if type(rect_1) is not Rectangle:
+        if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
-        elif type(rect_1) is not Rectangle:
+        if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        elif rect_2.area > rect_1.area:
-            return rect_2
-        return rect_1
+        if rect_1.area() >= rect_2.area():
+            return (rect_1)
+        return (rect_2)
+
+    def __str__(self):
+        """Return the printable representation of the Rectangle.
+
+        Represents the rectangle with the # character.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ("")
+
+        rect = []
+        for i in range(self.__height):
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect.append("\n")
+        return ("".join(rect))
+
+    def __repr__(self):
+        """Return the string representation of the Rectangle."""
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
+
+    def __del__(self):
+        """Print a message for every deletion of a Rectangle."""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
