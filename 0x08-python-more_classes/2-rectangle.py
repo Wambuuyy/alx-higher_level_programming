@@ -19,16 +19,16 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-    """
-    Setter width of the rectangle
+        """
+        Setter width of the rectangle
 
-    Attributes:
-    width (int): The width of the rectangle
+        Attributes:
+        width (int): The width of the rectangle
 
-    Raises:
-    TypeError: If width is not an integer
-    ValueError: If width is less than 0
-    """
+        Raises:
+        TypeError: If width is not an integer
+        ValueError: If width is less than 0
+        """
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -45,14 +45,14 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-    """
-    Setter height of the rectangle
-    Attributes:
-    height (int): The height of the rectangle
-    Raises:
-    TypeError: If height is not an integer
-    ValueError: If height is less than 0
-    """
+        """
+        Setter height of the rectangle
+        Attributes:
+        height (int): The height of the rectangle
+        Raises:
+        TypeError: If height is not an integer
+        ValueError: If height is less than 0
+        """
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value < 0:
