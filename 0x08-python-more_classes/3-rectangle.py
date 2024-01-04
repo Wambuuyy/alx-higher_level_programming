@@ -5,7 +5,7 @@
 
 class Rectangle:
     """it contains two attributes(private) width and height and they are optional"""
-   def __init__(self, width=0, height=0):
+    def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
 
@@ -83,7 +83,7 @@ class Rectangle:
             for columns in range(self.__width):
                 string += '#'
             #to go to the next row with a newline
-            if i < (self.__height - 1):
+            if rows < (self.__height - 1):
                 string += '\n'
         return string
         
