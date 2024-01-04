@@ -4,8 +4,9 @@
 
 
 class Rectangle:
-    """it contains two attributes(private) width and height and they are optional"""
-    def  __init__(self, width=0, height=0):
+    """it contains two attributes(private)
+    width and height and they are optional"""
+    def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
 
@@ -58,11 +59,11 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-    
+
     def area(self):
         """finds the area of the rectangle"""
         return self.__height * self .__width
-    
+
     def perimeter(self):
         """finds he distance around the rectangle"""
         if (self.__height == 0) or (self.__width == 0):
