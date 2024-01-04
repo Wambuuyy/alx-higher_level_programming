@@ -4,11 +4,12 @@
 
 
 class Rectangle:
-    """it contains two attributes(private) width and height and they are optional"""
+    """it contains two attributes(private)
+    width and height and they are optional"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
-    
+
     @property
     def width(self):
         """
@@ -77,12 +78,12 @@ class Rectangle:
         string = ""
         if self.__width == 0 or self.__height == 0:
             return string
-        #handle rows
+        # handle rows
         for rows in range(self.__height):
-            #handle columns
+            # handle columns
             for columns in range(self.__width):
                 string += '#'
-            #to go to the next row with a newline
+            # to go to the next row with a newline
             if i < (self.__height - 1):
                 string += '\n'
         return string
@@ -90,7 +91,7 @@ class Rectangle:
     def __repr__(self):
         """
         provides a repr() for the object rectangle
-        returns a string representation of the rectangle enabling it to be recreated using eval
+        returns a string representation of the rectangle
+        enabling it to be recreated using eval
         """
         return f"Rectangle({self.__width}, {self.__height})"
-

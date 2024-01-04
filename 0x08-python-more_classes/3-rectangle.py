@@ -4,7 +4,8 @@
 
 
 class Rectangle:
-    """it contains two attributes(private) width and height and they are optional"""
+    """it contains two attributes(private)
+    width and height and they are optional"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
@@ -33,7 +34,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = value    
+        self.__width = value
 
     @property
     def height(self):
@@ -77,13 +78,12 @@ class Rectangle:
         string = ""
         if self.__width == 0 or self.__height == 0:
             return string
-        #handle rows
+        # handle rows
         for rows in range(self.__height):
-            #handle columns
+            # handle columns
             for columns in range(self.__width):
                 string += '#'
-            #to go to the next row with a newline
+            # to go to the next row with a newline
             if rows < (self.__height - 1):
                 string += '\n'
         return string
-        

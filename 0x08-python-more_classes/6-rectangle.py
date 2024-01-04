@@ -4,8 +4,10 @@
 
 
 class Rectangle:
-    """it contains one public class attribute and two private and optional attributes: width and height"""
-    number_of_instances = 0;
+    """it contains one public class attribute
+    and two private and optional attributes:
+        width and height"""
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         self.__width = width
@@ -37,6 +39,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
+
     @property
     def height(self):
         """
@@ -79,12 +82,12 @@ class Rectangle:
         string = ""
         if self.__width == 0 or self.__height == 0:
             return string
-        #handle rows
+        # handle rows
         for rows in range(self.__height):
-            #handle columns
+            # handle columns
             for columns in range(self.__width):
                 string += '#'
-            #to go to the next row with a newline
+            # to go to the next row with a newline
             if i < (self.__height - 1):
                 string += '\n'
         return string
@@ -92,11 +95,13 @@ class Rectangle:
     def __repr__(self):
         """
         provides a repr() for the object rectangle
-        returns a string representation of the rectangle enabling it to be recreated using eval
+        returns a string representation of the rectangle
+        enabling it to be recreated using eval
         """
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """the number of instances are decremented and it desplays a message once a rectangle is deleted"""
+        """the number of instances are decremented and
+        it displays a message once a rectangle is deleted"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")

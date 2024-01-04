@@ -6,14 +6,14 @@
 class Rectangle:
     """
     It contains:
-        two public class attributes: 
+        two public class attributes:
             number_of_instances
             print_symbol
         two private and optional attributes:
             width
             height
     """
-    number_of_instances = 0;
+    number_of_instances = 0
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
@@ -89,12 +89,12 @@ class Rectangle:
         string = ""
         if self.__width == 0 or self.__height == 0:
             return string
-        #handle rows
+        # handle rows
         for rows in range(self.__height):
-            #handle columns
+            # handle columns
             for columns in range(self.__width):
                 string += str(Rectangle.print_symbol)
-            #to go to the next row with a newline
+            # to go to the next row with a newline
             if i < (self.__height - 1):
                 string += '\n'
         return string
@@ -102,12 +102,14 @@ class Rectangle:
     def __repr__(self):
         """
         provides a repr() for the object rectangle
-        returns a string representation of the rectangle enabling it to be recreated using eval
+        returns a string representation of the rectangle
+        enabling it to be recreated using eval
         """
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """the number of instances are decremented and it desplays a message once a rectangle is deleted"""
+        """the number of instances are decremented and
+        it desplays a message once a rectangle is deleted"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
@@ -130,6 +132,8 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """
-        a class method that returns a new rectangle instance with the width being equal to height which is passed to the function as size
+        a class method that returns a new rectangle instance
+        with the width being equal to height
+        which is passed to the function as size
         """
         return cls(size, size)
