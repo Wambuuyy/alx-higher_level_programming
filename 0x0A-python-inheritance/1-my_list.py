@@ -1,18 +1,20 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 """
-created on 08 Jan 2024
-authoor: Prudence Wambui
+Created on 08 Jan 2024
+
+@author: Prudence Wambui
 """
 
 
 class MyList(list):
     """
-    inherits from class list
+     class MyList that inherits from list
     """
-
     def print_sorted(self):
         """
-        prints the list
-        but in asceding sort
+        Public instance method that prints sorted list
         """
-        print(sorted(self))
+        list_copy = self[:]
+        list_copy.sort()
+        print(list_copy)
