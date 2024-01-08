@@ -9,6 +9,7 @@ class MyList(list):
     """
     inherits from class list
     """
+
     def print_sorted(self):
         """
         prints the list
