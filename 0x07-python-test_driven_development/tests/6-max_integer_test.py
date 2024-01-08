@@ -66,3 +66,11 @@ class TestMaxInteger(unittest.TestCase):
         """
         test_list = [1, 4, 2, 4, 4, 4, 9]
         self.assertEqual(max_integer(test_list), max(test_list))
+
+    def test_max_integer_double(self):
+        """
+        test case if the maximum number
+        is in double
+        """
+        test_list = [1,1,2, 2, 3, 3, 4, 4]
+        self.assertEqual(max_integer(test_list), max(test_list))
