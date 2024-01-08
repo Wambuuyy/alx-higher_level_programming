@@ -6,6 +6,13 @@ authoor: Prudence Wambui
 
 
 class MyList(list):
+    """
+    inherits from class list
+    """
     def print_sorted(self):
+        """
+        prints the list
+        but in asceding sort
+        """
         sorted_list = sorted(self)
         print(sorted_list)
