@@ -2,7 +2,7 @@
 # 3-to_json_string.py
 # Prudence Wambui
 """
-function that returns the JSON 
+function that returns the JSON
 representation of an object
 """
 
