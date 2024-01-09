@@ -5,6 +5,7 @@
 a function that reads a textfile and prints it
 """
 
+
 def read_file(filename=""):
     """
     uses utf-8 encoding
