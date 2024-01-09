@@ -14,8 +14,8 @@ you need to import:
 import sys
 if __name__ == "__main__":
     save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-    load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
-
+    load_from_json_file = \
+        __import__('6-load_from_json_file').load_from_json_file
     """
     load existing items from the file, if it exists
     if file doesnt exist, create an empty one
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     save the updated list to the file
     """
     try:
-       existing_list = load_from_json_file("add_item.json")
+        existing_list = load_from_json_file("add_item.json")
     except FileNotFoundError:
         existing_list = []
     existing_list.extend(sys.argv[1:])
