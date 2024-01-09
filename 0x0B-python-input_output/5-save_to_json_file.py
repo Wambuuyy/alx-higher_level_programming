@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 5-save_to_json_file.py
-#Prudence Wambui
+# Prudence Wambui
 """
 function that writes an object to a text file
 using json representation
