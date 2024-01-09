@@ -12,5 +12,4 @@ def read_file(filename=""):
     so it defaults the mode to read
     """
     with open(filename, encoding="UTF-8") as file:
-        content = file.read()
-        print(content)
+        print(file.read(), end='')
