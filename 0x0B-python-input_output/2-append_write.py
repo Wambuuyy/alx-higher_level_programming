@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 2-append_write.py
-#Prudence Wambui
+# Prudence Wambui
 """
 function that appends a string at the end of the text file
 returns the number of characters added
