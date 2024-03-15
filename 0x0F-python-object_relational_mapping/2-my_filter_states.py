@@ -17,7 +17,7 @@ if __name__ == "__main__":
                                  user=username, passwd=password, db=database)
     # create cursor to access
     cursor = connection.cursor()
-    query = "SELECT * FROM states WHERE name = '{}'\
+    query = "SELECT * FROM states WHERE states.name LIKE BINARY '{}'\
             ORDER BY id ASC".format(state)
     cursor.execute(query)
     rows = cursor.fetchall()
