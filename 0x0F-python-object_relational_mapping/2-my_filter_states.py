@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-script that takes an argument and displays all values in 
+script that takes an argument and displays all values in
 the states table of the database where name matches the argument
 """
 import MySQLdb
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # create cursor to access
     cursor = connection.cursor()
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    coursor.execute(query,(state,))
+    cursor.execute(query, (state,))
     rows = cursor.fetchall()
     # display results
     for row in rows:
