@@ -23,6 +23,7 @@ if __name__ == "__main__":
     rows = cursor.fetchall()
     # display results
     for row in rows:
+        print("'{}'".format(row[1]))
         print(row)
     # don forget to close connection
     cursor.close()
