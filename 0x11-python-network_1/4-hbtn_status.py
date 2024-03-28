@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Fetches a URL using the requests package and displays information about the response body.
+Fetches a URL using the requests package and
+displays information about the response body.
 """
 
 import requests
@@ -13,5 +14,5 @@ if __name__ == "__main__":
     content = response.text
 
     print("Body response:")
-    print("\t- type:", content_type)
-    print("\t- content:", content)
+    print("\t- type: {}".format(content_type))
+    print("\t- content: {}".format(content))
