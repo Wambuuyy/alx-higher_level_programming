@@ -7,12 +7,9 @@ displays information about the response body.
 import requests
 
 if __name__ == "__main__":
-    url = 'https://alx-intranet.hbtn.io/status'
-
-    response = requests.get(url)
-    content_type = type(response.text).__name__
-    content = response.text
-
-    print("Body response:")
-    print("\t- type: {}".format(content_type))
-    print("\t- content: {}".format(content))
+    response = requests.get('https://alx-intranet.hbtn.io/status')
+    print(
+        f'Body response:\n'
+        f'\t- type: {type(response.text)}\n'
+        f'\t- content: {response.text}'
+          )
