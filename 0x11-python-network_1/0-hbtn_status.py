@@ -1,13 +1,17 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status."""
-from urllib.request import urlopen
+"""
+Fetches a URL using urllib and displays information about the response body.
+"""
 
+import urllib.request
 
 if __name__ == "__main__":
-    url = 'https://intranet.hbtn.io/status'
-    with urlopen(url) as response:
-        bytes_content = response.read()
-        content = bytes_content.decode('utf-8')
-        string = 'Body response:\n\t- type: {}\n\t- content: {}\n\t- \
-utf8 content: {}'.format(type(bytes_content), bytes_content, content)
-        print(string)
+    url = 'https://alx-intranet.hbtn.io/status'
+
+    with urllib.request.urlopen(url) as response:
+        body = response.read()
+
+        print("Body response:")
+        print("\t- type:", type(body))
+        print("\t- content:", body)
+        print("\t- utf8 content:", body.decode('utf-8'))
