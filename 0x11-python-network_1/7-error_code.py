@@ -1,16 +1,20 @@
 #!/usr/bin/python3
-"""Sends a POST request to a given URL with a given email.
-
-Usage: ./6-post_email.py <URL> <email>
-  - Displays the body of the response.
 """
+Takes a URL, sends a request to the URL, and displays the body of the response.
+If the HTTP status code is greater than or equal to 400, prints "Error code:" followed by the value of the HTTP status code.
+"""
+
 import sys
 import requests
 
-
 if __name__ == "__main__":
     url = sys.argv[1]
-    value = {"email": sys.argv[2]}
 
-    r = requests.post(url, data=value)
-    print(r.text)
+    response = requests.get(url)
+    status_code = response.status_code
+    body = response.text
+
+    if status_code >= 400:
+        print("Error code:", status_code)
+    else:
+        print(body)
