@@ -1,10 +1,17 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status."""
-import requests
+"""
+Fetches a URL using urllib and displays information about the response body.
+"""
 
+import urllib.request
 
 if __name__ == "__main__":
-    r = requests.get("https://intranet.hbtn.io/status")
-    print("Body response:")
-    print("\t- type: {}".format(type(r.text)))
-    print("\t- content: {}".format(r.text))
+    url = 'https://alx-intranet.hbtn.io/status'
+
+    with urllib.request.urlopen(url) as response:
+        body = response.read()
+
+        print("Body response:")
+        print("\t- type:", type(body))
+        print("\t- content:", body)
+        print("\t- utf8 content:", body.decode('utf-8'))
