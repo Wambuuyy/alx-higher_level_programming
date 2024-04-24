@@ -1,20 +1,21 @@
 #!/usr/bin/node
 const request = require('request');
-const url = 'https://swapi.co/api/films/' + process.argv[2];
-request(url, function (error, response, body) {
-	if (!error) {
-		let characters = JSON.parse(body).characters;
-		printCharacters(characters, 0);
-	}
-});
-
-function printCharacters (characters, index) {
-	request(characters[index], function (error, response, body) {
-		if (!error) {
-			console.log(JSON.parse(body).name);
-  			if (index + 1 < characters.length) {
-				printCharacters(characters, index + 1);
+const names = [];
+let len = 0;
+request(`http://swapi.co/api/films/${process.argv[2]}`, { json: true }, (err, response, films) => {
+	if (err) {
+		return console.log(err);
+       	}
+	films.characters.forEach((url, i) => {
+		request(url, { json: true }, (err, response, char) => {
+			if (err) {
+				return console.log(err);
 			}
-		}
+			names[i] = char.name;
+			len++;
+			if (len === films.characters.length) {
+				names.forEach(name => console.log(name));
+			}
+		});
 	});
-}
+});
